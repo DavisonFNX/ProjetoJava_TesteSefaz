@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:p="http://primefaces.org/ui"
+	  xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<link rel="stylesheet" type="text/css" href="design.css" />
+	<title>Cadastro Teste Sefaz</title>
+
+
+</h:head>
+
+<h:body>
+
+<div id="cabecalho">
+	<h1>Sistema Cadastro de Usuários</h1>	
+	<hr></hr>
+</div>	
+
+<div id="corpo">
+
+	<h:form>
+	<p:growl id="growl" for="stik" showDetail="true" sticky="false" life="3500"/> 
+	<p:panel> 
+		<h:panelGrid columns="2" cellpadding="1"> 
+		<p:outputLabel for="msg1" value="Usuário:" />
+		<p:inputText id="msg1" value="#{loginBean.usuario.nome}" required="false" />
+		<p:outputLabel for="msg2" value="Senha:" />
+		<p:password id="msg2" value="#{loginBean.usuario.senha}" required="false"/>
+	</h:panelGrid>  
+
+	<br />
+	<p:commandButton value="Entrar" action="#{loginBean.logarSistema}" update="@form"/>
+	</p:panel> 
+	<!-- <h:commandButton value="Cadastrar usuário" action="cadastro" immediate="true" /> -->
+
+   
+	</h:form> 
+</div>
+
+
+</h:body>
+
+</html>

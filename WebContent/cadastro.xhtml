@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<link rel="stylesheet" type="text/css" href="design.css" />
+	<title>Tela de Cadastro</title>
+
+
+</h:head>
+
+<h:body>
+
+	<div id="cabecalho">
+		<h1>Cadastro de Usuários</h1>
+		<hr></hr>
+	</div>
+
+	<div id="corpo">
+		<h:form>
+
+			<p:commandButton value="Voltar a listagem" action="listagem" />
+			<p:commandButton value="Sair do sistema" action="index" />
+			<br />
+
+			<h3>Dados Cadastrais</h3>
+
+			<p:panel>
+				<h:panelGrid columns="2" cellpadding="1">
+					<p:outputLabel for="aviso1" value="Cadastro:" />
+					<p:inputText id="aviso1" value="#{usuarioBean.usuario.id}"
+						readonly="true" style="width: 50px;" />
+
+					<p:outputLabel for="aviso2" value="Usuário:" required="true" />
+					<p:inputText id="aviso2" value="#{usuarioBean.usuario.nome}" />
+
+					<p:outputLabel for="aviso3" value="Senha:" />
+					<p:inputText id="aviso3" value="#{usuarioBean.usuario.senha}" />
+
+					<p:outputLabel for="aviso4" value="E-mail:" />
+					<p:inputText id="aviso4" value="#{usuarioBean.usuario.email}" />
+
+
+
+				</h:panelGrid>
+			</p:panel>
+
+			<p:panel>
+				<h:panelGrid columns="4" cellpadding="0">
+					<p:outputLabel for="aviso5" value="Telefone:" />
+					<p:inputText id="aviso5"
+						value="#{usuarioBean.usuario.telefone.ddd}" style="width: 50px;" />
+					<p:inputText id="aviso6"
+						value="#{usuarioBean.usuario.telefone.numero}"
+						style="width: 100px;" />
+					<p:selectOneMenu value="#{usuarioBean.usuario.telefone.tipo}">
+						<f:selectItem itemValue="Residencial" itemLabel="Residencial" />
+						<f:selectItem itemValue="Celular" itemLabel="Celular" />
+					</p:selectOneMenu>
+				</h:panelGrid>
+				<p:commandButton value="Salvar" action="#{usuarioBean.salvar}" />
+				<p:commandButton value="Excluir" action="#{usuarioBean.remover}" />
+			</p:panel>
+
+
+
+		</h:form>
+
+	</div>
+
+
+</h:body>
+
+</html>

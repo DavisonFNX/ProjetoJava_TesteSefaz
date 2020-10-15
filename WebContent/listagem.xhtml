@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<link rel="stylesheet" type="text/css" href="design.css" />
+	<title>Tela de Listagem</title>
+
+
+</h:head>
+
+<h:body>
+
+	<div id="cabecalho">
+		<h1>Listagem de Usuários</h1>
+		<hr></hr>
+	</div>
+
+	<div id="corpo">
+		<h:form>
+			<p:commandButton value="Cadastrar usuário" action="cadastro"
+				immediate="true" />
+			<p:commandButton value="Sair do sistema" action="index" />
+			<br />
+			<h3>Usuários Cadastrados</h3>
+
+			<hr></hr>
+			<h:dataTable value="#{listagemBean.listaUsuarios}" var="usuario">
+				<h:column>
+					<f:facet name="header">ID</f:facet>
+					<h:outputText value="#{usuario.id}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Nome</f:facet>
+					<h:outputText value="#{usuario.nome}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Senha</f:facet>
+					<h:outputText value="#{usuario.senha}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">E-mail</f:facet>
+					<h:outputText value="#{usuario.email}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">DDD</f:facet>
+					<h:outputText value="#{usuario.telefone.ddd}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Numero</f:facet>
+					<h:outputText value="#{usuario.telefone.numero}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Tipo</f:facet>
+					<h:outputText value="#{usuario.telefone.tipo}" />
+				</h:column>
+				<h:column>
+					<h:commandLink value="Editar" action="cadastro">
+						<f:param name="Id" value="#{usuario.id}" />
+					</h:commandLink>
+
+
+				</h:column>
+
+
+			</h:dataTable>
+			<hr></hr>
+		</h:form>
+
+	</div>
+
+
+</h:body>
+
+</html>
